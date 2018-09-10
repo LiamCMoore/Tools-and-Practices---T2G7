@@ -300,6 +300,12 @@ static class UtilityFunctions
 
     private static List<Sprite> _Animations = new List<Sprite>();
 
+    /// <summary>
+    ///     ''' Create image and sprite objects and add sprite to animations to play
+    ///     ''' </summary>
+    ///     ''' <param name="row">row that was clicked<</param>
+    ///     ''' <param name="col">column that was clicked<</param>
+    ///     ''' <param name="image">file name string</param>
     private static void AddAnimation(int row, int col, string image)
     {
         Sprite s;
@@ -319,6 +325,9 @@ static class UtilityFunctions
         _Animations.Add(s);
     }
 
+    /// <summary>
+    ///     ''' Update newly added animations and remove animations that have ended
+    ///     ''' </summary>
     public static void UpdateAnimations()
     {
         List<Sprite> ended = new List<Sprite>();
@@ -336,12 +345,18 @@ static class UtilityFunctions
         }
     }
 
+    /// <summary>
+    ///     ''' Draw added animation sprites to the screen
+    ///     ''' </summary>
     public static void DrawAnimations()
     {
         foreach (Sprite s in _Animations)
             SwinGame.DrawSprite(s);
     }
 
+    /// <summary>
+    ///     ''' Update animation sprites and show a new screen to the game
+    ///     ''' </summary>
     public static void DrawAnimationSequence()
     {
         int i;

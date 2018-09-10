@@ -70,7 +70,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="font">Name of Font</param>
     ///     ''' <returns>The Font Loaded with this Name</returns>
-
     public static Font GameFont(string font)
     {
         return _Fonts[font];
@@ -81,7 +80,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="image">Name of image</param>
     ///     ''' <returns>The image loaded with this name</returns>
-
     public static Bitmap GameImage(string image)
     {
         return _Images[image];
@@ -92,7 +90,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="sound">Name of sound</param>
     ///     ''' <returns>The sound with this name</returns>
-
     public static SoundEffect GameSound(string sound)
     {
         return _Sounds[sound];
@@ -103,7 +100,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="music">Name of music</param>
     ///     ''' <returns>The music with this name</returns>
-
     public static Music GameMusic(string music)
     {
         return _Music[music];
@@ -125,7 +121,6 @@ public static class GameResources
     ///     ''' The Resources Class stores all of the Games Media Resources, such as Images, Fonts
     ///     ''' Sounds, Music.
     ///     ''' </summary>
-
     public static void LoadResources()
     {
         int width, height;
@@ -162,7 +157,6 @@ public static class GameResources
     /// <summary>
     ///     ''' Load the resources used in loading screen, and set off into sequence
     ///     ''' </summary>
- 
     private static void ShowLoadingScreen()
     {
         _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource));
@@ -183,7 +177,6 @@ public static class GameResources
     /// <summary>
     ///     ''' Play intro screen sound and draw background bitmap
     ///     ''' </summary>
- 
     private static void PlaySwinGameIntro()
     {
         const int ANI_CELL_COUNT = 11;
@@ -208,7 +201,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="message">the text that is displayed</param>
     ///     ''' <param name="number">the number of the resource</param>
-
     private static void ShowMessage(string message, int number)
     {
         const int TX = 310;
@@ -243,7 +235,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="width">screen width</param>
     ///     ''' <param name="height">screen height</param>
-
     private static void EndLoadingScreen(int width, int height)
     {
         SwinGame.ProcessEvents();
@@ -289,6 +280,9 @@ public static class GameResources
         _Music.Add(musicName, Audio.LoadMusic(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
     }
 
+    /// <summary>
+    ///     ''' Free font resources
+    ///     ''' </summary>
     private static void FreeFonts()
     {
         Font obj;
@@ -296,6 +290,9 @@ public static class GameResources
             SwinGame.FreeFont(obj);
     }
 
+    /// <summary>
+    ///     ''' Free font resources
+    ///     ''' </summary>
     private static void FreeImages()
     {
         Bitmap obj;
@@ -303,6 +300,9 @@ public static class GameResources
             SwinGame.FreeBitmap(obj);
     }
 
+    /// <summary>
+    ///     ''' Free sounds resources
+    ///     ''' </summary>
     private static void FreeSounds()
     {
         SoundEffect obj;
@@ -310,6 +310,9 @@ public static class GameResources
             Audio.FreeSoundEffect(obj);
     }
 
+    /// <summary>
+    ///     ''' Free music resources
+    ///     ''' </summary>
     private static void FreeMusic()
     {
         Music obj;
@@ -317,6 +320,9 @@ public static class GameResources
             Audio.FreeMusic(obj);
     }
 
+    /// <summary>
+    ///     ''' Free all game resources to reduce aplication memory usage
+    ///     ''' </summary>
     public static void FreeResources()
     {
         FreeFonts();

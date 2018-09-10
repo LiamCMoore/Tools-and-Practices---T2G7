@@ -129,6 +129,9 @@ public class Ship
         _tiles.Clear();
     }
 
+    /// <summary>
+    ///     ''' Increment hits taken count
+    ///     ''' </summary>
     public void Hit()
     {
         _hitsTaken = _hitsTaken + 1;
@@ -146,6 +149,9 @@ public class Ship
         }
     }
 
+    /// <summary>
+    ///     ''' IsDestroyed returns if hits equals the size of ship
+    ///     ''' </summary>
     public bool IsDestroyed
     {
         get

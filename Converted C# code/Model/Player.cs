@@ -108,11 +108,13 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    /// <summary>
+    ///     ''' IsDestroyed returns true if all ships are destroyed, returns -1 for the none ship
+    ///     ''' </summary>
     public bool IsDestroyed
     {
         get
         {
-            // Check if all ships are destroyed... -1 for the none ship
             return _playerGrid.ShipsKilled == Enum.GetValues(typeof(ShipName)).Length - 1;
         }
     }
@@ -139,7 +141,7 @@ public class Player : IEnumerable<Ship>
     ///     ''' The number of shots the player has made
     ///     ''' </summary>
     ///     ''' <value>shots taken</value>
-    ///     ''' <returns>teh number of shots taken</returns>
+    ///     ''' <returns>the number of shots taken</returns>
     public int Shots
     {
         get
@@ -148,6 +150,11 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    /// <summary>
+    ///     ''' The number of hits the player has made
+    ///     ''' </summary>
+    ///     ''' <value>hits made</value>
+    ///     ''' <returns>the number of hits made</returns>
     public int Hits
     {
         get
@@ -169,6 +176,11 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    /// <summary>
+    ///     ''' Return 0 if the players ship is destroyed, otherwise return the calculated score
+    ///     ''' </summary>
+    ///     ''' <value>score</value>
+    ///     ''' <returns>the score</returns>
     public int Score
     {
         get
@@ -250,6 +262,9 @@ public class Player : IEnumerable<Ship>
         return result;
     }
 
+    /// <summary>
+    ///     ''' Generate coordinates to place ship
+    ///     ''' </summary>
     public virtual void RandomizeDeployment()
     {
         bool placementSuccessful;
