@@ -159,6 +159,10 @@ public static class GameResources
         EndLoadingScreen(width, height);
     }
 
+    /// <summary>
+    ///     ''' Load the resources used in loading screen, and set off into sequence
+    ///     ''' </summary>
+ 
     private static void ShowLoadingScreen()
     {
         _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource));
@@ -176,6 +180,10 @@ public static class GameResources
         PlaySwinGameIntro();
     }
 
+    /// <summary>
+    ///     ''' Play intro screen sound and draw background bitmap
+    ///     ''' </summary>
+ 
     private static void PlaySwinGameIntro()
     {
         const int ANI_CELL_COUNT = 11;
@@ -194,6 +202,12 @@ public static class GameResources
 
         SwinGame.Delay(1500);
     }
+
+    /// <summary>
+    ///     ''' Show a message in the intro screen while each of the resources are loaded
+    ///     ''' </summary>
+    ///     ''' <param name="message">the text that is displayed</param>
+    ///     ''' <param name="number">the number of the resource</param>
 
     private static void ShowMessage(string message, int number)
     {
@@ -223,6 +237,12 @@ public static class GameResources
         SwinGame.RefreshScreen();
         SwinGame.ProcessEvents();
     }
+
+    /// <summary>
+    ///     ''' Clear screen and free all resources used in the loading screen
+    ///     ''' </summary>
+    ///     ''' <param name="width">screen width</param>
+    ///     ''' <param name="height">screen height</param>
 
     private static void EndLoadingScreen(int width, int height)
     {

@@ -164,6 +164,12 @@ public static class GameController
         DrawAnimationSequence();
     }
 
+    /// <summary>
+    ///     ''' If the player that just played is the human player, show the splash animation where the grid was clicked
+    ///     ''' </summary>
+    ///     ''' <param name="row">row that was clicked</param>
+    ///     ''' <param name="column">column that was clicked</param>
+    ///     ''' <param name="showAnimation">true is the player that just played is the human player</param>
     private static void PlayMissSequence(int row, int column, bool showAnimation)
     {
         if (showAnimation)
