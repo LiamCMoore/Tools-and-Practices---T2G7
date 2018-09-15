@@ -3,6 +3,7 @@
 /// ''' all ships are deployed and if all ships are detroyed. A Player can also attach.
 /// ''' </summary>
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -20,7 +21,7 @@ public class Player : IEnumerable<Ship>
     protected static Random _Random = new Random();
 
     private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
-    private SeaGrid _playerGrid = new SeaGrid(_Ships);
+    private SeaGrid _playerGrid;
     private ISeaGrid _enemyGrid;
     protected BattleShipsGame _game;
 
@@ -128,15 +129,13 @@ public class Player : IEnumerable<Ship>
     ///     ''' <value>The ship</value>
     ///     ''' <returns>The ship with the indicated name</returns>
     ///     ''' <remarks>The none ship returns nothing/null</remarks>
-    public Ship Ship
+    public Ship Ship(ShipName name)
     {
-        get
-        {
             if (name == ShipName.None)
                 return null/* TODO Change to default(_) if this is not a reference type */;
 
-            return _Ships.Item[name];
-        }
+            return _Ships[name];
+        
     }
 
     /// <summary>
@@ -237,14 +236,14 @@ public class Player : IEnumerable<Ship>
 
         switch (result.Value)
         {
-            case object _ when ResultOfAttack.Destroyed:
-            case object _ when ResultOfAttack.Hit:
+            case ResultOfAttack.Destroyed:
+            case ResultOfAttack.Hit:
                 {
                     _hits += 1;
                     break;
                 }
 
-            case object _ when ResultOfAttack.Miss:
+            case ResultOfAttack.Miss:
                 {
                     _misses += 1;
                     break;

@@ -248,7 +248,7 @@ static class UtilityFunctions
 				break;
 		}
 
-		SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
+		SwinGame.DrawFramerate(675, 585);
 	}
 
 	public static void AddExplosion(int row, int col)
