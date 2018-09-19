@@ -33,3 +33,7 @@ C:\Users\liamm_000\Documents\GitHub\Tools-and-Practices---T2G7(New)\obj\x86\Debu
 C:\Users\liamm_000\Documents\GitHub\Tools-and-Practices---T2G7(New)\obj\x86\Debug-Windows\MyGameWin.csproj.CoreCompileInputs.cache
 C:\Users\liamm_000\Documents\GitHub\Tools-and-Practices---T2G7(New)\obj\x86\Debug-Windows\MyGame.exe
 C:\Users\liamm_000\Documents\GitHub\Tools-and-Practices---T2G7(New)\obj\x86\Debug-Windows\MyGame.pdb
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\obj\x86\Debug-Windows\MyGameWin.csprojResolveAssemblyReference.cache
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\obj\x86\Debug-Windows\MyGameWin.csproj.CoreCompileInputs.cache
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\obj\x86\Debug-Windows\MyGame.exe
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\obj\x86\Debug-Windows\MyGame.pdb

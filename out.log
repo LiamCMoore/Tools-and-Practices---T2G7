@@ -1,10 +1,82 @@
-Microsoft (R) Visual Basic Compiler version 14.7.2053
+Microsoft (R) Visual Basic Compiler version 14.6.1586
 for Visual Basic 2012
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to Visual Basic 2012, which is no longer the latest version. For compilers that support newer versions of the Visual Basic programming language, see http://go.microsoft.com/fwlink/?LinkID=533241
 
-F:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\UtilityFunctions.vb(131) : warning BC42104: Variable 'fillColor' is used before it has been assigned a value. A null reference exception could result at runtime.
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DeploymentController.vb(41) : error BC30456: 'VK_ESCAPE' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_ESCAPE) Then
+                             ~~~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DeploymentController.vb(45) : error BC30456: 'VK_UP' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_UP) Or SwinGame.KeyTyped(KeyCode.VK_DOWN) Then
+                             ~~~~~~~~~~~~~                                            
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DeploymentController.vb(45) : error BC30456: 'VK_DOWN' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_UP) Or SwinGame.KeyTyped(KeyCode.VK_DOWN) Then
+                                                                 ~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DeploymentController.vb(48) : error BC30456: 'VK_LEFT' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_LEFT) Or SwinGame.KeyTyped(KeyCode.VK_RIGHT) Then
+                             ~~~~~~~~~~~~~~~                                             
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DeploymentController.vb(48) : error BC30456: 'VK_RIGHT' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_LEFT) Or SwinGame.KeyTyped(KeyCode.VK_RIGHT) Then
+                                                                   ~~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DeploymentController.vb(52) : error BC30456: 'VK_R' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_R) Then
+                             ~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DiscoveryController.vb(16) : error BC30456: 'VK_ESCAPE' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_ESCAPE) Then
+                             ~~~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DiscoveryController.vb(54) : error BC30456: 'VK_LSHIFT' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If (SwinGame.KeyDown(KeyCode.VK_LSHIFT) or SwinGame.KeyDown(KeyCode.VK_RSHIFT)) And SwinGame.KeyDown(KeyCode.VK_C) Then
+                             ~~~~~~~~~~~~~~~~~                                                                                 
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DiscoveryController.vb(54) : error BC30456: 'VK_RSHIFT' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If (SwinGame.KeyDown(KeyCode.VK_LSHIFT) or SwinGame.KeyDown(KeyCode.VK_RSHIFT)) And SwinGame.KeyDown(KeyCode.VK_C) Then
+                                                                    ~~~~~~~~~~~~~~~~~                                          
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\DiscoveryController.vb(54) : error BC30456: 'VK_C' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If (SwinGame.KeyDown(KeyCode.VK_LSHIFT) or SwinGame.KeyDown(KeyCode.VK_RSHIFT)) And SwinGame.KeyDown(KeyCode.VK_C) Then
+                                                                                                             ~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\EndingGameController.vb(32) : error BC30456: 'DrawTextLines' is not a member of 'SwinGameSDK.SwinGame'.
+
+        SwinGame.DrawTextLines(whatShouldIPrint, Color.White, Color.Transparent, GameResources.GameFont ("ArialLarge"), FontAlignment.AlignCenter, toDraw)
+        ~~~~~~~~~~~~~~~~~~~~~~                                                                                                                            
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\EndingGameController.vb(43) : error BC30456: 'VK_RETURN' is not a member of 'SwinGameSDK.KeyCode'.
+
+            OrElse SwinGame.KeyTyped(KeyCode.VK_RETURN) _
+                                     ~~~~~~~~~~~~~~~~~   
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\EndingGameController.vb(44) : error BC30456: 'VK_ESCAPE' is not a member of 'SwinGameSDK.KeyCode'.
+
+            OrElse SwinGame.KeyTyped(KeyCode.VK_ESCAPE) Then
+                                     ~~~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\GameResources.vb(191) : error BC30456: 'DrawTextLines' is not a member of 'SwinGameSDK.SwinGame'.
+
+        SwinGame.DrawTextLines(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, toDraw)
+        ~~~~~~~~~~~~~~~~~~~~~~                                                                                          
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\HighScoreController.vb(137) : error BC30456: 'VK_ESCAPE' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.MouseClicked(MouseButton.LeftButton) OrElse SwinGame.KeyTyped(KeyCode.VK_ESCAPE) OrElse SwinGame.KeyTyped(KeyCode.VK_RETURN) Then
+                                                                                  ~~~~~~~~~~~~~~~~~                                                  
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\HighScoreController.vb(137) : error BC30456: 'VK_RETURN' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.MouseClicked(MouseButton.LeftButton) OrElse SwinGame.KeyTyped(KeyCode.VK_ESCAPE) OrElse SwinGame.KeyTyped(KeyCode.VK_RETURN) Then
+                                                                                                                              ~~~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\MenuController.vb(88) : error BC30456: 'VK_ESCAPE' is not a member of 'SwinGameSDK.KeyCode'.
+
+        If SwinGame.KeyTyped(KeyCode.VK_ESCAPE) Then
+                             ~~~~~~~~~~~~~~~~~      
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\MenuController.vb(180) : error BC30456: 'DrawTextLines' is not a member of 'SwinGameSDK.SwinGame'.
+
+            SwinGame.DrawTextLines(_menuStructure(menu)(i), MENU_COLOR, Color.Black, GameFont("Menu"), FontAlignment.AlignCenter, toDraw)
+            ~~~~~~~~~~~~~~~~~~~~~~                                                                                                       
+E:\PortableGit-2.18.0-64-bit.7z\Tools-and-Practices---T2G7\src\UtilityFunctions.vb(131) : warning BC42104: Variable 'fillColor' is used before it has been assigned a value. A null reference exception could result at runtime.
 
                     SwinGame.FillRectangle(fillColor, colLeft, rowTop, cellWidth, cellHeight)
                                            ~~~~~~~~~                                         
