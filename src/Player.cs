@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 
-public class Player : IEnumerable<Ship>
+public class Player 
 {
     protected static Random _Random = new Random();
 
