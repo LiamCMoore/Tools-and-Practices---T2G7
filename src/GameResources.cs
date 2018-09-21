@@ -200,8 +200,8 @@ public static class GameResources
 
 	private static void ShowMessage(string message, int number)
 	{
-		const int TX = 310;
-		const int TY = 493;
+	//	const int TX = 310;
+	//	const int TY = 493;
 		const int TW = 200;
 		const int TH = 25;
 		const int STEPS = 5;
@@ -214,7 +214,8 @@ public static class GameResources
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
 		SwinGame.DrawBitmap(_LoaderFull, 0, 0);
 
-		SwinGame.DrawText(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, SwinGame.RectangleFrom(TX, TY, TW, TH));
+		SwinGame.DrawText(message, Color.White, /*Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, TX, TY,*/ TW, TH);
+
 
 		SwinGame.RefreshScreen();
 		SwinGame.ProcessEvents();
@@ -247,7 +248,7 @@ public static class GameResources
 
 	private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
 	{
-		_Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource)));
+		_Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource) /*true, transColor*/ ));
 	}
 
 	private static void NewTransparentColourImage(string imageName, string fileName, Color transColor)

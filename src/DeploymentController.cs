@@ -52,7 +52,7 @@ static class DeploymentController
 		}
 
 		if (SwinGame.KeyTyped(KeyCode.UpKey) | SwinGame.KeyTyped(KeyCode.DownKey)) {
-			_currentDirection = Direction.UpDown;
+			_currentDirection = Direction.UpDown; 
 		}
 		if (SwinGame.KeyTyped(KeyCode.LeftKey) | SwinGame.KeyTyped(KeyCode.RightKey)) {
 			_currentDirection = Direction.LeftRight;
