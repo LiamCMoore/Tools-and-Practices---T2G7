@@ -214,11 +214,8 @@ public static class GameResources
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
 		SwinGame.DrawBitmap(_LoaderFull, 0, 0, SwinGame.OptionToScreen(SwinGame.OptionPartBmp(fullW, 66, BG_X, BG_Y)));
 
-<<<<<<< HEAD
 		SwinGame.DrawText(message, Color.White, /*Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, TX, TY,*/ TW, TH);
-=======
-		SwinGame.DrawText(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, SwinGame.RectangleFrom(TX, TY, TW, TH));
->>>>>>> b9af43c0a5787a13fbcd6a0bf524ceb032a25fac
+
 
 		SwinGame.RefreshScreen();
 		SwinGame.ProcessEvents();
@@ -251,11 +248,7 @@ public static class GameResources
 
 	private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
 	{
-<<<<<<< HEAD
 		_Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource) /*true, transColor*/ ));
-=======
-		_Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource)));
->>>>>>> b9af43c0a5787a13fbcd6a0bf524ceb032a25fac
 	}
 
 	private static void NewTransparentColourImage(string imageName, string fileName, Color transColor)

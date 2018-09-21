@@ -15,24 +15,19 @@ using SwinGameSDK;
 static class EndingGameController
 {
 
-	/// <summary>
-	/// Draw the end of the game screen, shows the win/lose state
-	/// </summary>
-	public static void DrawEndOfGame()
-	{
-		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
-		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
+    /// <summary>
+    /// Draw the end of the game screen, shows the win/lose state
+    /// </summary>
+    public static void DrawEndOfGame()
+    {
+        UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
+        UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
-		if (GameController.HumanPlayer.IsDestroyed) {
-<<<<<<< HEAD
-			SwinGame.DrawText("YOU LOSE!", Color.White, /*Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250,*/ SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-		} else {
-			SwinGame.DrawText("-- WINNER --", Color.White, /*Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250,*/ SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-=======
-			SwinGame.DrawText("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, SwinGame.CreateRectangle(0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight()));
-		} else {
-			SwinGame.DrawText("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, SwinGame.CreateRectangle(0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight()));
->>>>>>> b9af43c0a5787a13fbcd6a0bf524ceb032a25fac
+        if (GameController.HumanPlayer.IsDestroyed) {
+
+            SwinGame.DrawText("YOU LOSE!", Color.White, /*Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250,*/ SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+        } else {
+            SwinGame.DrawText("-- WINNER --", Color.White, /*Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250,*/ SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
 		}
 	}
 
