@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 
-public class Player 
+public class Player
 {
     protected static Random _Random = new Random();
 
@@ -132,8 +132,8 @@ public class Player
     public Ship Ship(ShipName name)
     {
             if (name == ShipName.None)
-                return null/* TODO Change to default(_) if this is not a reference type */;
-
+                return default(Ship);
+        
             return _Ships[name];
         
     }
@@ -219,7 +219,8 @@ public class Player
     public virtual AttackResult Attack()
     {
         // human does nothing here...
-        return null/* TODO Change to default(_) if this is not a reference type */;
+
+        return default(AttackResult);
     }
 
     /// <summary>
