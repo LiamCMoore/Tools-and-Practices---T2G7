@@ -200,8 +200,8 @@ public static class GameResources
 
 	private static void ShowMessage(string message, int number)
 	{
-		const int TX = 310;
-		const int TY = 493;
+	//	const int TX = 310;
+	//	const int TY = 493;
 		const int TW = 200;
 		const int TH = 25;
 		const int STEPS = 5;
