@@ -14,7 +14,7 @@ using SwinGameSDK;
 /// </summary>
 public static class GameController
 {
-    //test ramuna
+    //test rs
 	private static BattleShipsGame _theGame;
 	private static Player _human;
 
