@@ -14,6 +14,7 @@ using SwinGameSDK;
 /// </summary>
 public static class GameController
 {
+    //rsrs
 	private static BattleShipsGame _theGame;
 	private static Player _human;
 
