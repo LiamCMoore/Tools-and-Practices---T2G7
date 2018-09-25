@@ -116,9 +116,10 @@ static class UtilityFunctions
 	private static void DrawCustomField(ISeaGrid grid, Player thePlayer, bool small, bool showShips, int left, int top, int width, int height, int cellWidth, int cellHeight,
 	int cellGap)
 	{
-		//SwinGame.FillRectangle(Color.Blue, left, top, width, height)
+        //line bellow is only for debugging
+        //SwinGame.FillRectangle(Color.Blue, left, top, width, height)
 
-		int rowTop = 0;
+        int rowTop = 0;
 		int colLeft = 0;
 
 		//Draw the grid
@@ -134,11 +135,12 @@ static class UtilityFunctions
 				draw = true;
 
 				switch (grid[row, col]) {
-					//case TileView.Ship:
-					//	draw = false;
-					//	break;
-					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
-					case TileView.Miss:
+                    //case TileView.Ship:
+                    //	draw = false;
+                    //	break;
+                    //uncommenting line bellow causes an error
+                    //If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
+                    case TileView.Miss:
 						if (small)
 							fillColor = SMALL_MISS;
 						else

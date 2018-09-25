@@ -89,8 +89,9 @@ public static class GameController
 
 		_human = new Player(_theGame);
 
-		//AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-		_ai.PlayerGrid.Changed += GridChanged;
+        //uncommenting line bellow did not cause an error and did not cause a noticeable change to functionality
+        //AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
+        _ai.PlayerGrid.Changed += GridChanged;
 		_theGame.AttackCompleted += AttackCompleted;
 
 		AddNewState(GameState.Deploying);
@@ -102,8 +103,9 @@ public static class GameController
 
 	private static void EndGame()
 	{
-		//RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-		_ai.PlayerGrid.Changed -= GridChanged;
+        //uncommenting line bellow did not cause an error and did not cause a noticeable change to functionality
+        //RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
+        _ai.PlayerGrid.Changed -= GridChanged;
 		_theGame.AttackCompleted -= AttackCompleted;
 	}
 
