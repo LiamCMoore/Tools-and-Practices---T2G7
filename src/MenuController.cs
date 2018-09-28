@@ -140,6 +140,7 @@ static class MenuController
 	public static void DrawMainMenu()
 	{
 		//Clears the Screen to Black
+        //line bellow is only for dubugging
 		//SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
 
 		DrawButtons(MAIN_MENU);
@@ -150,10 +151,11 @@ static class MenuController
 	/// </summary>
 	public static void DrawGameMenu()
 	{
-		//Clears the Screen to Black
-		//SwinGame.DrawText("Paused", Color.White, GameFont("ArialLarge"), 50, 50)
+        //Clears the Screen to Black
+        //line bellow is only for dubugging
+        //SwinGame.DrawText("Paused", Color.White, GameFont("ArialLarge"), 50, 50)
 
-		DrawButtons(GAME_MENU);
+        DrawButtons(GAME_MENU);
 	}
 
 	/// <summary>
@@ -164,10 +166,11 @@ static class MenuController
 	/// </remarks>
 	public static void DrawSettings()
 	{
-		//Clears the Screen to Black
-		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
+        //Clears the Screen to Black
+        //line bellow is only for dubugging
+        //SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
 
-		DrawButtons(MAIN_MENU);
+        DrawButtons(MAIN_MENU);
 		DrawButtons(SETUP_MENU, 1, 1);
 	}
 
@@ -200,8 +203,14 @@ static class MenuController
 		for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
 			int btnLeft = 0;
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
+<<<<<<< HEAD
             //SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
 			SwinGame.DrawText(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, SwinGame.CreateRectangle(btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT));
+=======
+            //line bellow is only for dubugging
+            //SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
+            SwinGame.DrawText(_menuStructure[menu][i], MENU_COLOR, /*Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET,*/ BUTTON_WIDTH, BUTTON_HEIGHT);
+>>>>>>> 64bcc101bf89236e25fe86e9cbd164dc661e60c6
 
             if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
 				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
