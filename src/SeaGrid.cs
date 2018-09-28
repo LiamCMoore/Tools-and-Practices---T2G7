@@ -94,7 +94,7 @@ public class SeaGrid : ISeaGrid
     }
 }
      
-public void DummyClass(Dictionary<ShipName, Ship> ships)
+public SeaGrid(Dictionary<ShipName, Ship> ships)
 {
         // fill array with empty Tiles
     _GameTiles = new Tile[Width, Height];
@@ -155,8 +155,8 @@ private void AddShip(int row, int col, Direction direction, Ship newShip)
         }
 
         // place ship's tiles in array and into ship object
-        int i;
-        _GameTiles = new Tile[Width, Height];
+        int i = 0;
+        //_GameTiles = new Tile[Width, Height];
         for (i = 0; (i
                     <= (size - 1)); i++)
         {
@@ -183,7 +183,10 @@ private void AddShip(int row, int col, Direction direction, Ship newShip)
     }
     finally
     {
-        Changed(this, EventArgs.Empty);
+            if (Changed != null)
+            {
+                Changed(this, EventArgs.Empty);
+            }
     }
 
 }
@@ -197,7 +200,7 @@ private void AddShip(int row, int col, Direction direction, Ship newShip)
     // '' <returns>An attackresult (hit, miss, sunk, shotalready)</returns>
     public AttackResult HitTile(int row, int col)
     {
-        _GameTiles = new Tile[Width, Height];
+        //_GameTiles = new Tile[Width, Height];
         try
         {
             // tile is already hit

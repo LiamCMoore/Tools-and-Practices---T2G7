@@ -16,10 +16,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 
-public class Player
+public class Player : IEnumerable<Ship>
 {
     protected static Random _Random = new Random();
-
     private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
     private SeaGrid _playerGrid;
     private ISeaGrid _enemyGrid;
@@ -61,6 +60,7 @@ public class Player
     public Player(BattleShipsGame controller)
     {
         _game = controller;
+        _playerGrid = new SeaGrid(_Ships);
 
         // for each ship add the ships name so the seagrid knows about them
         foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
@@ -197,7 +197,10 @@ public class Player
 
         return lst.GetEnumerator();
     }
-
+    IEnumerator<Ship> IEnumerable<Ship>.GetEnumerator()
+    {
+        return GetShipEnumerator();
+    }
     /// <summary>
     ///     ''' Makes it possible to enumerate over the ships the player
     ///     ''' has.

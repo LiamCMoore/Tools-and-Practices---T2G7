@@ -68,24 +68,28 @@ public static class GameController
 	/// </remarks>
 	public static void StartGame()
 	{
-		if (_theGame != null)
-			EndGame();
 
-		//Create the game
-		_theGame = new BattleShipsGame();
+        if (_theGame != null)
+            EndGame();
+        //Create the game
+        _theGame = new BattleShipsGame();
 
-		//create the players
-		switch (_aiSetting) {
+
+        //create the players
+        switch (_aiSetting) {
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer(_theGame);
+                Console.WriteLine("Medium");
 				break;
 			case AIOption.Hard:
 				_ai = new AIHardPlayer(_theGame);
-				break;
+                Console.WriteLine("Medium");
+                break;
 			default:
-				_ai = new AIHardPlayer(_theGame);
+				_ai = new AIMediumPlayer(_theGame);
 				break;
 		}
+        
 
 		_human = new Player(_theGame);
 

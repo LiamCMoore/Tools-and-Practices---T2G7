@@ -175,8 +175,8 @@ public static class GameResources
 
 	private static void PlaySwinGameIntro()
 	{
-		const int ANI_X = 143;
-		const int ANI_Y = 134;
+		//const int ANI_X = 143;
+		//const int ANI_Y = 134;
 		const int ANI_W = 546;
 		const int ANI_H = 327;
 		const int ANI_V_CELL_COUNT = 6;
@@ -200,8 +200,8 @@ public static class GameResources
 
 	private static void ShowMessage(string message, int number)
 	{
-	//	const int TX = 310;
-	//	const int TY = 493;
+		const int TX = 310;
+		const int TY = 493;
 		const int TW = 200;
 		const int TH = 25;
 		const int STEPS = 5;
@@ -214,7 +214,7 @@ public static class GameResources
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
 		SwinGame.DrawBitmap(_LoaderFull, 0, 0);
 
-		SwinGame.DrawText(message, Color.White, /*Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, TX, TY,*/ TW, TH);
+		SwinGame.DrawText(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, SwinGame.CreateRectangle(TX, TY, TW, TH));
 
 
 		SwinGame.RefreshScreen();
@@ -280,13 +280,14 @@ public static class GameResources
 		}
 	}
 
+    
 	private static void FreeSounds()
 	{		
 		foreach (SoundEffect obj in _Sounds.Values) {
-			Audio.FreeSoundEffect(obj);
+			//Audio.FreeSoundEffect(obj);
 		}
 	}
-
+    
 	private static void FreeMusic()
 	{
 
