@@ -227,7 +227,7 @@ public static class GameController
 	/// </remarks>
 	public static void Attack(int row, int col)
 	{
-		AttackResult result = default(AttackResult);
+		var result = default(AttackResult);
 		result = _theGame.Shoot(row, col);
 		CheckAttackResult(result);
 	}
@@ -240,7 +240,7 @@ public static class GameController
 	/// </remarks>
 	private static void AIAttack()
 	{
-		AttackResult result = default(AttackResult);
+		var result = default(AttackResult);
 		result = _theGame.Player.Attack();
 		CheckAttackResult(result);
 	}

@@ -36,7 +36,7 @@ static class DiscoveryController
 	/// </summary>
 	private static void DoAttack()
 	{
-		Point2D mouse = default(Point2D);
+		var mouse = default(Point2D);
 
 		mouse = SwinGame.MousePosition();
 
@@ -58,10 +58,10 @@ static class DiscoveryController
 	/// </summary>s
 	public static void DrawDiscovery()
 	{
-		const int SCORES_LEFT = 172;
-		const int SHOTS_TOP = 157;
-		const int HITS_TOP = 206;
-		const int SPLASH_TOP = 256;
+		const int _scoresLeft = 172;
+		const int _shotsTop = 157;
+		const int _hitsTop = 206;
+		const int _splashTop = 256;
 
 		if ((SwinGame.KeyDown(KeyCode.LeftShiftKey) | SwinGame.KeyDown(KeyCode.RightShiftKey)) & SwinGame.KeyDown(KeyCode.CKey)) {
 			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
@@ -72,9 +72,9 @@ static class DiscoveryController
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 		UtilityFunctions.DrawMessage();
 
-		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
-		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
-		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), _scoresLeft, _shotsTop);
+		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), _scoresLeft, _hitsTop);
+		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), _scoresLeft, _splashTop);
 	}
 
 }

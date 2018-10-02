@@ -19,7 +19,8 @@ using Microsoft.VisualBasic;
 
 public class BattleShipsGame
 {
-
+    private Player[] _players = new Player[3];
+    private int _playerIndex = 0;
     /// <summary>
     ///     ''' The attack delegate type is used to send notifications of the end of an
     ///     ''' attack by a player or the AI.
@@ -35,9 +36,6 @@ public class BattleShipsGame
     ///     ''' This is used by the UI to play sound effects etc.
     ///     ''' </remarks>
     public event AttackCompletedHandler AttackCompleted;
-
-    private Player[] _players = new Player[3];
-    private int _playerIndex = 0;
 
     /// <summary>
     ///     ''' The current player.
@@ -90,10 +88,8 @@ public class BattleShipsGame
     ///     ''' <returns>The result of the attack</returns>
     public AttackResult Shoot(int row, int col)
     {
-        AttackResult newAttack;
+        var newAttack = Player.Shoot(row, col);
         int otherPlayer = (_playerIndex + 1) % 2;
-
-        newAttack = Player.Shoot(row, col);
 
         // Will exit the game when all players ships are destroyed
         if (_players[otherPlayer].IsDestroyed)

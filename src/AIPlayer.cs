@@ -19,17 +19,17 @@ public abstract class AIPlayer : Player
 	/// </summary>
 	protected class Location
 	{
-		private int _Row;
+		private int _row;
 
-		private int _Column;
+		private int _column;
 		/// <summary>
 		/// The row of the shot
 		/// </summary>
 		/// <value>The row of the shot</value>
 		/// <returns>The row of the shot</returns>
 		public int Row {
-			get { return _Row; }
-			set { _Row = value; }
+			get { return _row; }
+			set { _row = value; }
 		}
 
 		/// <summary>
@@ -38,8 +38,8 @@ public abstract class AIPlayer : Player
 		/// <value>The column of the shot</value>
 		/// <returns>The column of the shot</returns>
 		public int Column {
-			get { return _Column; }
-			set { _Column = value; }
+			get { return _column; }
+			set { _column = value; }
 		}
 
 		/// <summary>
@@ -49,8 +49,8 @@ public abstract class AIPlayer : Player
 		/// <param name="column">the column of the location</param>
 		public Location(int row, int column)
 		{
-			_Column = column;
-			_Row = row;
+			_column = column;
+			_row = row;
 		}
 
 		/// <summary>
@@ -105,7 +105,7 @@ public abstract class AIPlayer : Player
 	/// <returns>The result of the last attack</returns>
 	public override AttackResult Attack()
 	{
-		AttackResult result = default(AttackResult);
+		var result = default(AttackResult);
 		int row = 0;
 		int column = 0;
 

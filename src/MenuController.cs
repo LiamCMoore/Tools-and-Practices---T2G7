@@ -203,14 +203,10 @@ static class MenuController
 		for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
 			int btnLeft = 0;
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
-<<<<<<< HEAD
+            //The below commeted code makes the buttons look ugly
             //SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
 			SwinGame.DrawText(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, SwinGame.CreateRectangle(btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT));
-=======
-            //line bellow is only for dubugging
-            //SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
-            SwinGame.DrawText(_menuStructure[menu][i], MENU_COLOR, /*Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET,*/ BUTTON_WIDTH, BUTTON_HEIGHT);
->>>>>>> 64bcc101bf89236e25fe86e9cbd164dc661e60c6
+
 
             if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
 				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
