@@ -26,11 +26,11 @@ public class SeaGrid : ISeaGrid
 
     private const int _HEIGHT = 10;
 
-    private Dictionary<ShipName, Ship> _Ships;
+    public Dictionary<ShipName, Ship> _Ships;
 
     private Tile[,] _GameTiles;
 
-    private int _ShipsKilled = 0;
+    public int _ShipsKilled = 0;
 
     // '' <summary>
     // '' The sea grid has changed and should be redrawn.
