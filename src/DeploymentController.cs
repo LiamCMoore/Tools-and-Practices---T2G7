@@ -74,7 +74,7 @@ static class DeploymentController
 			if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(_playButtonLeft, _topButtonsTop, _playButtonWidth, _topButtonsHeight)) {
 				GameController.EndDeployment();
 			} else if (UtilityFunctions.IsMouseInRectangle(_upDownButtonLeft, _topButtonsTop, _dirButtonsWidth, _topButtonsHeight)) {
-				_currentDirection = Direction.LeftRight;
+				_currentDirection = Direction.UpDown;
 			} else if (UtilityFunctions.IsMouseInRectangle(_leftRightButtonLeft, _topButtonsTop, _dirButtonsWidth, _topButtonsHeight)) {
 				_currentDirection = Direction.LeftRight;
 			} else if (UtilityFunctions.IsMouseInRectangle(_randomButtonLeft, _topButtonsTop, _randomButtonWidth, _topButtonsHeight)) {
@@ -100,7 +100,7 @@ static class DeploymentController
 		//Calculate the row/col clicked
 		int row = 0;
 		int col = 0;
-		row = Convert.ToInt32(Math.Floor((mouse.Y) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
+		row = Convert.ToInt32(Math.Floor((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
 		col = Convert.ToInt32(Math.Floor((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
 
 		if (row >= 0 & row < GameController.HumanPlayer.PlayerGrid.Height) {
