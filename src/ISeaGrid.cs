@@ -11,8 +11,6 @@ using System.Diagnostics;
 /// </summary>
 public interface ISeaGrid
 {
-
-
 	int Width { get; }
 
 	int Height { get; }

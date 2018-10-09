@@ -100,8 +100,8 @@ static class DeploymentController
 		//Calculate the row/col clicked
 		int row = 0;
 		int col = 0;
-		row = Convert.ToInt32(Math.Floor((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
-		col = Convert.ToInt32(Math.Floor((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
+		row = Convert.ToInt32(Math.Floor((mouse.Y - UtilityFunctions._fieldTop) / (UtilityFunctions._cellHeight + UtilityFunctions._cellGap)));
+		col = Convert.ToInt32(Math.Floor((mouse.X - UtilityFunctions._fieldLeft) / (UtilityFunctions._cellWidth + UtilityFunctions._cellGap)));
 
 		if (row >= 0 & row < GameController.HumanPlayer.PlayerGrid.Height) {
 			if (col >= 0 & col < GameController.HumanPlayer.PlayerGrid.Width) {
@@ -161,7 +161,7 @@ static class DeploymentController
 		if (GameController.HumanPlayer.ReadyToDeploy) {
 			SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), _playButtonLeft, _topButtonsTop);
             //uncommenting two lines bellow caused an error
-            //SwinGame.FillRectangle(Color.LightBlue, PLAY_BUTTON_LEFT, PLAY_BUTTON_TOP, PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT)
+            //SwinGame.FillRectangle(Color.LightBlue, PLAY_BUTTON_LEFT, PLAY_BUTTON_TOP, PLAY__buttonWidth, PLAY_BUTTON_HEIGHT)
             //SwinGame.DrawText("PLAY", Color.Black, GameFont("Courier"), PLAY_BUTTON_LEFT + TEXT_OFFSET, PLAY_BUTTON_TOP)
         }
 

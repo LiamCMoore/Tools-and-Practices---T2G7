@@ -15,14 +15,14 @@ using SwinGameSDK;
 
 static class MenuController
 {
-
     /// <summary>
     /// The menu structure for the game.
     /// </summary>
     /// <remarks>
     /// These are the text captions for the menu items.
     /// </remarks>
-    private static readonly string[][] _menuStructure = {
+    private static readonly string[][] _menuStructure =
+    {
         new string[] {
             "PLAY",
             "SETUP",
@@ -40,41 +40,41 @@ static class MenuController
             "HARD"
         }
     };
-	private const int MENU_TOP = 575;
-	private const int MENU_LEFT = 30;
-	private const int MENU_GAP = 0;
-	private const int BUTTON_WIDTH = 75;
-	private const int BUTTON_HEIGHT = 15;
-	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
+	private const int _menuTop = 575;
+	private const int _menuLeft = 30;
+	private const int _menuGap = 0;
+	private const int _buttonWidth = 75;
+	private const int _buttonHeight = 15;
+	private const int _buttonSeparation = _buttonWidth + _menuGap;
 
-	private const int TEXT_OFFSET = 0;
-	private const int MAIN_MENU = 0;
-	private const int GAME_MENU = 1;
+	private const int _TextOffset = 0;
+	private const int _MainMenu = 0;
+	private const int _GameMenu = 1;
 
-	private const int SETUP_MENU = 2;
-	private const int MAIN_MENU_PLAY_BUTTON = 0;
-	private const int MAIN_MENU_SETUP_BUTTON = 1;
-	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+	private const int _SetupMenu = 2;
+	private const int _MainMenuPlayButton = 0;
+	private const int _MainMenuSetupButton = 1;
+	private const int _MainMenuTopScoresButton = 2;
 
-	private const int MAIN_MENU_QUIT_BUTTON = 3;
-	private const int SETUP_MENU_EASY_BUTTON = 0;
-	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
-	private const int SETUP_MENU_HARD_BUTTON = 2;
+	private const int _MainMenuQuitButton = 3;
+	private const int _SetupMenuEasyButton = 0;
+	private const int _SetupMenuMediumButton = 1;
+	private const int _SetupMenuHardButton = 2;
 
-	private const int SETUP_MENU_EXIT_BUTTON = 3;
-	private const int GAME_MENU_RETURN_BUTTON = 0;
-	private const int GAME_MENU_SURRENDER_BUTTON = 1;
+	private const int _SetupMenuExitButton = 3;
+	private const int _GameMenuReturnButton = 0;
+	private const int _GameMenuSurrenderButton = 1;
 
-	private const int GAME_MENU_QUIT_BUTTON = 2;
-	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
+	private const int _GameMenuQuitButton = 2;
+	private static readonly Color _MenuColor = SwinGame.RGBAColor(2, 167, 252, 255);
 
-	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
+	private static readonly Color _HighlightColor = SwinGame.RGBAColor(1, 57, 86, 255);
 	/// <summary>
 	/// Handles the processing of user input when the main menu is showing
 	/// </summary>
 	public static void HandleMainMenuInput()
 	{
-		HandleMenuInput(MAIN_MENU, 0, 0);
+		HandleMenuInput(_MainMenu, 0, 0);
 	}
 
 	/// <summary>
@@ -83,10 +83,11 @@ static class MenuController
 	public static void HandleSetupMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput(SETUP_MENU, 1, 1);
+		handled = HandleMenuInput(_SetupMenu, 1, 1);
 
-		if (!handled) {
-			HandleMenuInput(MAIN_MENU, 0, 0);
+		if (!handled)
+        {
+			HandleMenuInput(_MainMenu, 0, 0);
 		}
 	}
 
@@ -98,7 +99,7 @@ static class MenuController
 	/// </remarks>
 	public static void HandleGameMenuInput()
 	{
-		HandleMenuInput(GAME_MENU, 0, 0);
+		HandleMenuInput(_GameMenu, 0, 0);
 	}
 
 	/// <summary>
@@ -110,14 +111,17 @@ static class MenuController
 	/// <returns>false if a clicked missed the buttons. This can be used to check prior menus.</returns>
 	private static bool HandleMenuInput(int menu, int level, int xOffset)
 	{
-		if (SwinGame.KeyTyped(KeyCode.EscapeKey)) {
+		if (SwinGame.KeyTyped(KeyCode.EscapeKey))
+        {
 			GameController.EndCurrentState();
 			return true;
 		}
 
-		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
+		if (SwinGame.MouseClicked(MouseButton.LeftButton))
+        {
 			int i = 0;
-			for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
+			for (i = 0; i <= _menuStructure[menu].Length - 1; i++)
+            {
 				//IsMouseOver the i'th button of the menu
 				if (IsMouseOverMenu(i, level, xOffset)) {
 					PerformMenuAction(menu, i);
@@ -125,7 +129,8 @@ static class MenuController
 				}
 			}
 
-			if (level > 0) {
+			if (level > 0)
+            {
 				//none clicked - so end this sub menu
 				GameController.EndCurrentState();
 			}
@@ -143,7 +148,7 @@ static class MenuController
         //line bellow is only for dubugging
 		//SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
 
-		DrawButtons(MAIN_MENU);
+		DrawButtons(_MainMenu);
 	}
 
 	/// <summary>
@@ -155,7 +160,7 @@ static class MenuController
         //line bellow is only for dubugging
         //SwinGame.DrawText("Paused", Color.White, GameFont("ArialLarge"), 50, 50)
 
-        DrawButtons(GAME_MENU);
+        DrawButtons(_GameMenu);
 	}
 
 	/// <summary>
@@ -170,8 +175,8 @@ static class MenuController
         //line bellow is only for dubugging
         //SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
 
-        DrawButtons(MAIN_MENU);
-		DrawButtons(SETUP_MENU, 1, 1);
+        DrawButtons(_MainMenu);
+		DrawButtons(_SetupMenu, 1, 1);
 	}
 
 	/// <summary>
@@ -196,20 +201,21 @@ static class MenuController
 	/// </remarks>
 	private static void DrawButtons(int menu, int level, int xOffset)
 	{
-		int btnTop = 0;
+		int buttonTop = 0;
 
-		btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
+		buttonTop = _menuTop - (_menuGap + _buttonHeight) * level;
 		int i = 0;
-		for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
-			int btnLeft = 0;
-			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
+		for (i = 0; i <= _menuStructure[menu].Length - 1; i++)
+        {
+			int buttonLeft = 0;
+			buttonLeft = _menuLeft + _buttonSeparation * (i + xOffset);
             //The below commeted code makes the buttons look ugly
-            //SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
-			SwinGame.DrawText(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, SwinGame.CreateRectangle(btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT));
-
-
-            if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
-				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+            //SwinGame.FillRectangle(Color.White, buttonLeft, buttonTop, _buttonWidth, _buttonHeight);
+			SwinGame.DrawText(_menuStructure[menu][i], _MenuColor, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, SwinGame.CreateRectangle(buttonLeft + _TextOffset, buttonTop + _TextOffset, _buttonWidth, _buttonHeight));
+            
+            if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset))
+            {
+				SwinGame.DrawRectangle(_HighlightColor, buttonLeft, buttonTop, _buttonWidth, _buttonHeight);
 			}
 		}
 	}
@@ -234,10 +240,10 @@ static class MenuController
 	/// <returns>true if the mouse is over the button</returns>
 	private static bool IsMouseOverMenu(int button, int level, int xOffset)
 	{
-		int btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
-		int btnLeft = MENU_LEFT + BUTTON_SEP * (button + xOffset);
+		int buttonTop = _menuTop - (_menuGap + _buttonHeight) * level;
+		int buttonLeft = _menuLeft + _buttonSeparation * (button + xOffset);
 
-		return UtilityFunctions.IsMouseInRectangle(btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+		return UtilityFunctions.IsMouseInRectangle(buttonLeft, buttonTop, _buttonWidth, _buttonHeight);
 	}
 
 	/// <summary>
@@ -247,14 +253,15 @@ static class MenuController
 	/// <param name="button">the index of the button that was clicked</param>
 	private static void PerformMenuAction(int menu, int button)
 	{
-		switch (menu) {
-			case MAIN_MENU:
+		switch (menu)
+        {
+			case _MainMenu:
 				PerformMainMenuAction(button);
 				break;
-			case SETUP_MENU:
+			case _SetupMenu:
 				PerformSetupMenuAction(button);
 				break;
-			case GAME_MENU:
+			case _GameMenu:
 				PerformGameMenuAction(button);
 				break;
 		}
@@ -266,17 +273,18 @@ static class MenuController
 	/// <param name="button">the button pressed</param>
 	private static void PerformMainMenuAction(int button)
 	{
-		switch (button) {
-			case MAIN_MENU_PLAY_BUTTON:
+		switch (button)
+        {
+			case _MainMenuPlayButton:
 				GameController.StartGame();
 				break;
-			case MAIN_MENU_SETUP_BUTTON:
+			case _MainMenuSetupButton:
 				GameController.AddNewState(GameState.AlteringSettings);
 				break;
-			case MAIN_MENU_TOP_SCORES_BUTTON:
+			case _MainMenuTopScoresButton:
 				GameController.AddNewState(GameState.ViewingHighScores);
 				break;
-			case MAIN_MENU_QUIT_BUTTON:
+			case _MainMenuQuitButton:
 				GameController.EndCurrentState();
 				break;
 		}
@@ -288,14 +296,15 @@ static class MenuController
 	/// <param name="button">the button pressed</param>
 	private static void PerformSetupMenuAction(int button)
 	{
-		switch (button) {
-			case SETUP_MENU_EASY_BUTTON:
+		switch (button)
+        {
+			case _SetupMenuEasyButton:
 				GameController.SetDifficulty(AIOption.Easy);
 				break;
-			case SETUP_MENU_MEDIUM_BUTTON:
+			case _SetupMenuMediumButton:
 				GameController.SetDifficulty(AIOption.Medium);
 				break;
-			case SETUP_MENU_HARD_BUTTON:
+			case _SetupMenuHardButton:
 				GameController.SetDifficulty(AIOption.Hard);
 				break;
 		}
@@ -309,17 +318,18 @@ static class MenuController
 	/// <param name="button">the button pressed</param>
 	private static void PerformGameMenuAction(int button)
 	{
-		switch (button) {
-			case GAME_MENU_RETURN_BUTTON:
+		switch (button)
+        {
+			case _GameMenuReturnButton:
 				GameController.EndCurrentState();
 				break;
-			case GAME_MENU_SURRENDER_BUTTON:
+			case _GameMenuSurrenderButton:
 				GameController.EndCurrentState();
 				//end game menu
 				GameController.EndCurrentState();
 				//end game
 				break;
-			case GAME_MENU_QUIT_BUTTON:
+			case _GameMenuQuitButton:
 				GameController.AddNewState(GameState.Quitting);
 				break;
 		}

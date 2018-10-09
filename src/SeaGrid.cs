@@ -21,10 +21,9 @@ using Microsoft.VisualBasic;
 // '' </remarks>
 public class SeaGrid : ISeaGrid
 {
+    private const int _width = 10;
 
-    private const int _WIDTH = 10;
-
-    private const int _HEIGHT = 10;
+    private const int _height = 10;
 
     public Dictionary<ShipName, Ship> _Ships;
 
@@ -46,7 +45,7 @@ public class SeaGrid : ISeaGrid
     {
         get
         {
-            return _WIDTH;
+            return _width;
         }
     }
 
@@ -54,7 +53,7 @@ public class SeaGrid : ISeaGrid
     {
         get
         {
-            return _HEIGHT;
+            return _height;
         }
     }
 
@@ -71,125 +70,119 @@ public class SeaGrid : ISeaGrid
         get { return _GameTiles[x, y].View; }
     }
 
-
-
-
     // '' <summary>
     // '' AllDeployed checks if all the ships are deployed
     // '' </summary>
     public bool AllDeployed
-{
-    get
     {
-        foreach (Ship s in _Ships.Values)
+        get
         {
-            if (!s.IsDeployed)
+            foreach (Ship s in _Ships.Values)
             {
-                return false;
+                if (!s.IsDeployed)
+                {
+                    return false;
+                }
+
             }
 
+            return true;
         }
-
-        return true;
     }
-}
      
-public SeaGrid(Dictionary<ShipName, Ship> ships)
-{
-        // fill array with empty Tiles
-    _GameTiles = new Tile[Width, Height];
-    int i;
-    for (i = 0; (i
-                <= (Width - 1)); i++)
+    public SeaGrid(Dictionary<ShipName, Ship> ships)
     {
-        for (int j = 0; (j
-                    <= (Height - 1)); j++)
+        // fill array with empty Tiles
+        _GameTiles = new Tile[Width, Height];
+        int i;
+        for (i = 0; (i <= (Width - 1)); i++)
         {
-            _GameTiles[i, j] = new Tile(i, j, null);
+            for (int j = 0; (j <= (Height - 1)); j++)
+            {
+                _GameTiles[i, j] = new Tile(i, j, null);
+            }
         }
 
+        _Ships = ships;
     }
 
-    _Ships = ships;
-}
-
-// '' <summary>
-// '' MoveShips allows for ships to be placed on the seagrid
-// '' </summary>
-// '' <param name="row">the row selected</param>
-// '' <param name="col">the column selected</param>
-// '' <param name="ship">the ship selected</param>
-// '' <param name="direction">the direction the ship is going</param>
-public void MoveShip(int row, int col, ShipName ship, Direction direction)
-{
-    Ship newShip = _Ships[ship];
-    newShip.Remove();
-    AddShip(row, col, direction, newShip);
-}
-
-// '' <summary>
-// '' AddShip add a ship to the SeaGrid
-// '' </summary>
-// '' <param name="row">row coordinate</param>
-// '' <param name="col">col coordinate</param>
-// '' <param name="direction">direction of ship</param>
-// '' <param name="newShip">the ship</param>
-private void AddShip(int row, int col, Direction direction, Ship newShip)
-{
-        try
+    // '' <summary>
+    // '' MoveShips allows for ships to be placed on the seagrid
+    // '' </summary>
+    // '' <param name="row">the row selected</param>
+    // '' <param name="col">the column selected</param>
+    // '' <param name="ship">the ship selected</param>
+    // '' <param name="direction">the direction the ship is going</param>
+    public void MoveShip(int row, int col, ShipName ship, Direction direction)
     {
-        int size = newShip.Size;
-        int currentRow = row;
-        int currentCol = col;
-        int dRow;
-        int dCol;
-        if ((direction == Direction.LeftRight))
-        {
-            dRow = 0;
-            dCol = 1;
-        }
-        else
-        {
-            dRow = 1;
-            dCol = 0;
-        }
+        Ship newShip = _Ships[ship];
+        newShip.Remove();
+        AddShip(row, col, direction, newShip);
+    }
 
-        // place ship's tiles in array and into ship object
-        int i = 0;
-        //_GameTiles = new Tile[Width, Height];
-        for (i = 0; (i
-                    <= (size - 1)); i++)
+    // '' <summary>
+    // '' AddShip add a ship to the SeaGrid
+    // '' </summary>
+    // '' <param name="row">row coordinate</param>
+    // '' <param name="col">col coordinate</param>
+    // '' <param name="direction">direction of ship</param>
+    // '' <param name="newShip">the ship</param>
+    private void AddShip(int row, int col, Direction direction, Ship newShip)
+    {
+        try
         {
-            if (((currentRow < 0)
-                        || ((currentRow >= Width)
-                        || ((currentCol < 0)
-                        || (currentCol >= Height)))))
+            int size = newShip.Size;
+            int currentRow = row;
+            int currentCol = col;
+            int dRow;
+            int dCol;
+            if ((direction == Direction.LeftRight))
             {
-                throw new InvalidOperationException("Ship can\'t fit on the board");
+                dRow = 0;
+                dCol = 1;
+            }
+            else
+            {
+                dRow = 1;
+                dCol = 0;
             }
 
-            _GameTiles[currentRow, currentCol].Ship = newShip;
-            currentCol = (currentCol + dCol);
-            currentRow = (currentRow + dRow);
+            // place ship's tiles in array and into ship object
+            int i = 0;
+            //_GameTiles = new Tile[Width, Height];
+            for (i = 0; (i <= (size - 1)); i++)
+            {
+                if (((currentRow < 0)
+                 || ((currentRow >= Width)
+                 || ((currentCol < 0)
+                 || (currentCol >= Height)))))
+                {
+                    throw new InvalidOperationException("Ship can\'t fit on the board");
+                }
+
+                _GameTiles[currentRow, currentCol].Ship = newShip;
+                currentCol = (currentCol + dCol);
+                currentRow = (currentRow + dRow);
+            }
+
+            newShip.Deployed(direction, row, col);
+            //throw new ApplicationException('');
         }
 
-        newShip.Deployed(direction, row, col);
-    }
-    catch (Exception e)
-    {
-        newShip.Remove();
-        // if fails remove the ship
-        throw new ApplicationException(e.Message);
-    }
-    finally
-    {
+        catch (Exception e)
+        {
+            newShip.Remove();
+            // if fails remove the ship
+            throw new ApplicationException(e.Message);
+        }
+        finally
+        {
             if (Changed != null)
             {
                 Changed(this, EventArgs.Empty);
             }
+        }
     }
-
-}
 
     // '' <summary>
     // '' HitTile hits a tile at a row/col, and whatever tile has been hit, a

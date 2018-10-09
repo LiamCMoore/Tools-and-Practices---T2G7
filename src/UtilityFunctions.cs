@@ -1,3 +1,4 @@
+
 using Microsoft.VisualBasic;
 using System;
 using System.Collections;
@@ -11,37 +12,37 @@ using SwinGameSDK;
 /// </summary>
 static class UtilityFunctions
 {
-	public const int FIELD_TOP = 122;
-	public const int FIELD_LEFT = 349;
-	public const int FIELD_WIDTH = 418;
+	public const int _fieldTop = 122;
+	public const int _fieldLeft = 349;
+	public const int _fieldWidth = 418;
 
-	public const int FIELD_HEIGHT = 418;
+	public const int _fieldHeight = 418;
 
-	public const int MESSAGE_TOP = 548;
-	public const int CELL_WIDTH = 40;
-	public const int CELL_HEIGHT = 40;
+	public const int _messageTop = 548;
+	public const int _cellWidth = 40;
+	public const int _cellHeight = 40;
 
-	public const int CELL_GAP = 2;
+	public const int _cellGap = 2;
 
-	public const int SHIP_GAP = 3;
-	private static readonly Color SMALL_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
-	private static readonly Color SMALL_SHIP = Color.Gray;
-	private static readonly Color SMALL_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
+	public const int _shipGap = 3;
+	private static readonly Color _smallSea = SwinGame.RGBAColor(6, 60, 94, 255);
+	private static readonly Color _smallShip = Color.Gray;
+	private static readonly Color _smallMiss = SwinGame.RGBAColor(1, 147, 220, 255);
 
-	private static readonly Color SMALL_HIT = SwinGame.RGBAColor(169, 24, 37, 255);
-	private static readonly Color LARGE_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
-	private static readonly Color LARGE_SHIP = Color.Gray;
-	private static readonly Color LARGE_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
+	private static readonly Color _smallHit = SwinGame.RGBAColor(169, 24, 37, 255);
+	private static readonly Color _largeSea = SwinGame.RGBAColor(6, 60, 94, 255);
+	private static readonly Color _largeShip = Color.Gray;
+	private static readonly Color _largeMiss = SwinGame.RGBAColor(1, 147, 220, 255);
 
-	private static readonly Color LARGE_HIT = SwinGame.RGBAColor(252, 2, 3, 255);
-	private static readonly Color OUTLINE_COLOR = SwinGame.RGBAColor(5, 55, 88, 255);
-	private static readonly Color SHIP_FILL_COLOR = Color.Gray;
-	private static readonly Color SHIP_OUTLINE_COLOR = Color.White;
+	private static readonly Color _largeHit = SwinGame.RGBAColor(252, 2, 3, 255);
+	private static readonly Color _outlineColour = SwinGame.RGBAColor(5, 55, 88, 255);
+	private static readonly Color _shipFillColor = Color.Gray;
+	private static readonly Color _shipOutlineColor = Color.White;
 
-	private static readonly Color MESSAGE_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
-	public const int ANIMATION_CELLS = 7;
+	private static readonly Color _messageColor = SwinGame.RGBAColor(2, 167, 252, 255);
+	public const int _animationCells = 7;
 
-	public const int FRAMES_PER_CELL = 8;
+	public const int _framesPerCell = 8;
 	/// <summary>
 	/// Determines if the mouse is in a given rectangle.
 	/// </summary>
@@ -58,9 +59,11 @@ static class UtilityFunctions
 		mouse = SwinGame.MousePosition();
 
 		//if the mouse is inline with the button horizontally
-		if (mouse.X >= x & mouse.X <= x + w) {
+		if (mouse.X >= x & mouse.X <= x + w)
+        {
 			//Check vertical position
-			if (mouse.Y >= y & mouse.Y <= y + h) {
+			if (mouse.Y >= y & mouse.Y <= y + h)
+            {
 				result = true;
 			}
 		}
@@ -76,8 +79,8 @@ static class UtilityFunctions
 	/// <param name="showShips">indicates if the ships should be shown</param>
 	public static void DrawField(ISeaGrid grid, Player thePlayer, bool showShips)
 	{
-		DrawCustomField(grid, thePlayer, false, showShips, FIELD_LEFT, FIELD_TOP, FIELD_WIDTH, FIELD_HEIGHT, CELL_WIDTH, CELL_HEIGHT,
-		CELL_GAP);
+		DrawCustomField(grid, thePlayer, false, showShips, _fieldLeft, _fieldTop, _fieldWidth, _fieldHeight, _cellWidth, _cellHeight,
+		_cellGap);
 	}
 
 	/// <summary>
@@ -87,16 +90,16 @@ static class UtilityFunctions
 	/// <param name="thePlayer">the player to show the ships of</param>
 	public static void DrawSmallField(ISeaGrid grid, Player thePlayer)
 	{
-		const int SMALL_FIELD_LEFT = 39;
-		const int SMALL_FIELD_TOP = 373;
-		const int SMALL_FIELD_WIDTH = 166;
-		const int SMALL_FIELD_HEIGHT = 166;
-		const int SMALL_FIELD_CELL_WIDTH = 13;
-		const int SMALL_FIELD_CELL_HEIGHT = 13;
-		const int SMALL_FIELD_CELL_GAP = 4;
+		const int _smallFieldLeft = 39;
+		const int _smallFieldTop = 373;
+		const int _smallFieldWidth = 166;
+		const int _smallFieldHeight = 166;
+		const int _smallFieldCellWidth = 13;
+		const int _smallFieldCellHeight = 13;
+		const int _smallFieldCellGap = 4;
 
-		DrawCustomField(grid, thePlayer, true, true, SMALL_FIELD_LEFT, SMALL_FIELD_TOP, SMALL_FIELD_WIDTH, SMALL_FIELD_HEIGHT, SMALL_FIELD_CELL_WIDTH, SMALL_FIELD_CELL_HEIGHT,
-		SMALL_FIELD_CELL_GAP);
+		DrawCustomField(grid, thePlayer, true, true, _smallFieldLeft, _smallFieldTop, _smallFieldWidth, _smallFieldHeight, _smallFieldCellWidth, _smallFieldCellHeight,
+		_smallFieldCellGap);
 	}
 
 	/// <summary>
@@ -123,10 +126,12 @@ static class UtilityFunctions
 		int colLeft = 0;
 
 		//Draw the grid
-		for (int row = 0; row <= 9; row++) {
+		for (int row = 0; row <= 9; row++)
+        {
 			rowTop = top + (cellGap + cellHeight) * row;
 
-			for (int col = 0; col <= 9; col++) {
+			for (int col = 0; col <= 9; col++)
+            {
 				colLeft = left + (cellGap + cellWidth) * col;
 
 				Color fillColor = default(Color);
@@ -134,7 +139,8 @@ static class UtilityFunctions
 
 				draw = true;
 
-				switch (grid[row, col]) {
+				switch (grid[row, col])
+                {
                     //case TileView.Ship:
                     //	draw = false;
                     //	break;
@@ -142,35 +148,38 @@ static class UtilityFunctions
                     //If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
                     case TileView.Miss:
 						if (small)
-							fillColor = SMALL_MISS;
+							fillColor = _smallMiss;
 						else
-							fillColor = LARGE_MISS;
+							fillColor = _largeMiss;
 						break;
 					case TileView.Hit:
 						if (small)
-							fillColor = SMALL_HIT;
+							fillColor = _smallHit;
 						else
-							fillColor = LARGE_HIT;
+							fillColor = _largeHit;
 						break;
 					case TileView.Sea:
 					case TileView.Ship:
 						if (small)
-							fillColor = SMALL_SEA;
+							fillColor = _smallSea;
 						else
 							draw = false;
 						break;
 				}
 
-				if (draw) {
+				if (draw)
+                {
 					SwinGame.FillRectangle(fillColor, colLeft, rowTop, cellWidth, cellHeight);
-					if (!small) {
-						SwinGame.DrawRectangle(OUTLINE_COLOR, colLeft, rowTop, cellWidth, cellHeight);
+					if (!small)
+                    {
+						SwinGame.DrawRectangle(_outlineColour, colLeft, rowTop, cellWidth, cellHeight);
 					}
 				}
 			}
 		}
 
-		if (!showShips) {
+		if (!showShips)
+        {
 			return;
 		}
 
@@ -179,32 +188,36 @@ static class UtilityFunctions
 		string shipName = null;
 
 		//Draw the ships
-		foreach (Ship s in thePlayer) {
+		foreach (Ship s in thePlayer)
+        {
 			if (s == null || !s.IsDeployed)
 				continue;
-			rowTop = top + (cellGap + cellHeight) * s.Row + SHIP_GAP;
-			colLeft = left + (cellGap + cellWidth) * s.Column + SHIP_GAP;
+			rowTop = top + (cellGap + cellHeight) * s.Row + _shipGap;
+			colLeft = left + (cellGap + cellWidth) * s.Column + _shipGap;
 
-			if (s.Direction == Direction.LeftRight) {
+			if (s.Direction == Direction.LeftRight)
+            {
 				shipName = "ShipLR" + s.Size;
-				shipHeight = cellHeight - (SHIP_GAP * 2);
-				shipWidth = (cellWidth + cellGap) * s.Size - (SHIP_GAP * 2) - cellGap;
-			} else {
+				shipHeight = cellHeight - (_shipGap * 2);
+				shipWidth = (cellWidth + cellGap) * s.Size - (_shipGap * 2) - cellGap;
+			} else
+            {
 				//Up down
 				shipName = "ShipUD" + s.Size;
-				shipHeight = (cellHeight + cellGap) * s.Size - (SHIP_GAP * 2) - cellGap;
-				shipWidth = cellWidth - (SHIP_GAP * 2);
+				shipHeight = (cellHeight + cellGap) * s.Size - (_shipGap * 2) - cellGap;
+				shipWidth = cellWidth - (_shipGap * 2);
 			}
 
-			if (!small) {
+			if (!small)
+            {
 				SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
-			} else {
-				SwinGame.FillRectangle(SHIP_FILL_COLOR, colLeft, rowTop, shipWidth, shipHeight);
-				SwinGame.DrawRectangle(SHIP_OUTLINE_COLOR, colLeft, rowTop, shipWidth, shipHeight);
+			} else
+            {
+				SwinGame.FillRectangle(_shipFillColor, colLeft, rowTop, shipWidth, shipHeight);
+				SwinGame.DrawRectangle(_shipOutlineColor, colLeft, rowTop, shipWidth, shipHeight);
 			}
 		}
 	}
-
 
 	private static string _message;
 	/// <summary>
@@ -212,7 +225,8 @@ static class UtilityFunctions
 	/// </summary>
 	/// <value>The message to display</value>
 	/// <returns>The message to display</returns>
-	public static string Message {
+	public static string Message
+    {
 		get { return _message; }
 		set { _message = value; }
 	}
@@ -222,7 +236,7 @@ static class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
+		SwinGame.DrawText(Message, _messageColor, GameResources.GameFont("Courier"), _fieldLeft, _messageTop);
 	}
 
 	/// <summary>
@@ -231,7 +245,8 @@ static class UtilityFunctions
 
 	public static void DrawBackground()
 	{
-		switch (GameController.CurrentState) {
+		switch (GameController.CurrentState)
+        {
 			case GameState.ViewingMainMenu:
 			case GameState.ViewingGameMenu:
 			case GameState.AlteringSettings:
@@ -263,7 +278,6 @@ static class UtilityFunctions
 		AddAnimation(row, col, "Splash");
 	}
 
-
 	private static List<Sprite> _Animations = new List<Sprite>();
 	private static void AddAnimation(int row, int col, string image)
 	{
@@ -277,8 +291,8 @@ static class UtilityFunctions
 		animation = SwinGame.LoadAnimationScript("splash.txt");
 
 		s = SwinGame.CreateSprite(imgObj, animation);
-		s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
-		s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
+		s.X = _fieldLeft + col * (_cellWidth + _cellGap);
+		s.Y = _fieldTop + row * (_cellHeight + _cellGap);
 
 		s.StartAnimation("splash");
 		_Animations.Add(s);
@@ -287,14 +301,17 @@ static class UtilityFunctions
 	public static void UpdateAnimations()
 	{
 		List<Sprite> ended = new List<Sprite>();
-		foreach (Sprite s in _Animations) {
+		foreach (Sprite s in _Animations)
+        {
 			SwinGame.UpdateSprite(s);
-			if (s.AnimationHasEnded) {
+			if (s.AnimationHasEnded)
+            {
 				ended.Add(s);
 			}
 		}
 
-		foreach (Sprite s in ended) {
+		foreach (Sprite s in ended)
+        {
 			_Animations.Remove(s);
 			SwinGame.FreeSprite(s);
 		}
@@ -302,7 +319,8 @@ static class UtilityFunctions
 
 	public static void DrawAnimations()
 	{
-		foreach (Sprite s in _Animations) {
+		foreach (Sprite s in _Animations)
+        {
 			SwinGame.DrawSprite(s);
 		}
 	}
@@ -310,7 +328,8 @@ static class UtilityFunctions
 	public static void DrawAnimationSequence()
 	{
 		int i = 0;
-		for (i = 1; i <= ANIMATION_CELLS * FRAMES_PER_CELL; i++) {
+		for (i = 1; i <= _animationCells * _framesPerCell; i++)
+        {
 			UpdateAnimations();
 			GameController.DrawScreen();
 		}
