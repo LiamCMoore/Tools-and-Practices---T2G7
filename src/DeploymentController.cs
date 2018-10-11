@@ -108,7 +108,8 @@ static class DeploymentController
 				//if in the area try to deploy
 				try {
 					GameController.HumanPlayer.PlayerGrid.MoveShip(row, col, _selectedShip, _currentDirection);
-				} catch (Exception ex) {
+                    UtilityFunctions.Message = "You have placed a ship on the grid";
+                } catch (Exception ex) {
 					Audio.PlaySoundEffect(GameResources.GameSound("Error"));
 					UtilityFunctions.Message = ex.Message;
 				}
