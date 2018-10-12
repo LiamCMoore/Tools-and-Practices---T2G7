@@ -129,7 +129,7 @@ public class Tile
             else
                 // if there is a ship and it has been hit
                 if ((_Shot))
-                return TileView.Hit;
+                    return TileView.Hit;
             else
                 // if there is a ship and it hasn't been hit
                 return TileView.Ship;

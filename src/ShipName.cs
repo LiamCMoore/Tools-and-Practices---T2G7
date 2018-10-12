@@ -19,7 +19,6 @@ public enum ShipName
 	AircraftCarrier = 5
 }
 
-
 //=======================================================
 //Service provided by Telerik (www.telerik.com)
 //Conversion powered by NRefactory.

@@ -11,8 +11,6 @@ using System.Diagnostics;
 /// </summary>
 public class SeaGridAdapter : ISeaGrid
 {
-
-
 	private SeaGrid _MyGrid;
 	/// <summary>
 	/// Create the SeaGridAdapter, with the grid, and it will allow it to be changed
@@ -31,7 +29,8 @@ public class SeaGridAdapter : ISeaGrid
 	/// <param name="e">what needs to be redrawn</param>
 	private void MyGrid_Changed(object sender, EventArgs e)
 	{
-		if (Changed != null) {
+		if (Changed != null)
+        {
 			Changed(this, e);
 		}
 	}
@@ -86,7 +85,6 @@ public class SeaGridAdapter : ISeaGrid
 		return _MyGrid.HitTile(row, col);
 	}
 	#endregion
-
 }
 
 //=======================================================

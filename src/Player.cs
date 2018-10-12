@@ -131,11 +131,10 @@ public class Player : IEnumerable<Ship>
     ///     ''' <remarks>The none ship returns nothing/null</remarks>
     public Ship Ship(ShipName name)
     {
-            if (name == ShipName.None)
-                return default(Ship);
+        if (name == ShipName.None)
+            return default(Ship);
         
-            return _Ships[name];
-        
+        return _Ships[name];        
     }
 
     /// <summary>
@@ -197,10 +196,12 @@ public class Player : IEnumerable<Ship>
 
         return lst.GetEnumerator();
     }
+
     IEnumerator<Ship> IEnumerable<Ship>.GetEnumerator()
     {
         return GetShipEnumerator();
     }
+
     /// <summary>
     ///     ''' Makes it possible to enumerate over the ships the player
     ///     ''' has.
