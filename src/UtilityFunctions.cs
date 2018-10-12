@@ -11,19 +11,19 @@ using SwinGameSDK;
 /// </summary>
 static class UtilityFunctions
 {
-	public const int FIELD_TOP = 122;
-	public const int FIELD_LEFT = 349;
-	public const int FIELD_WIDTH = 418;
+	public const int _fieldTop = 122;
+	public const int _fieldLeft = 349;
+	public const int _fieldWidth = 418;
 
-	public const int FIELD_HEIGHT = 418;
+	public const int _fieldHeight = 418;
 
-	public const int MESSAGE_TOP = 548;
-	public const int CELL_WIDTH = 40;
-	public const int CELL_HEIGHT = 40;
+	public const int _messageTop = 548;
+	public const int _cellWidth = 40;
+	public const int _cellHeight = 40;
 
-	public const int CELL_GAP = 2;
+	public const int _cellGap = 2;
 
-	public const int SHIP_GAP = 3;
+	public const int _shipGap = 3;
 	private static readonly Color SMALL_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
 	private static readonly Color SMALL_SHIP = Color.Gray;
 	private static readonly Color SMALL_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
@@ -76,8 +76,8 @@ static class UtilityFunctions
 	/// <param name="showShips">indicates if the ships should be shown</param>
 	public static void DrawField(ISeaGrid grid, Player thePlayer, bool showShips)
 	{
-		DrawCustomField(grid, thePlayer, false, showShips, FIELD_LEFT, FIELD_TOP, FIELD_WIDTH, FIELD_HEIGHT, CELL_WIDTH, CELL_HEIGHT,
-		CELL_GAP);
+		DrawCustomField(grid, thePlayer, false, showShips, _fieldLeft, _fieldTop, _fieldWidth, _fieldHeight, _cellWidth, _cellHeight,
+		_cellGap);
 	}
 
 	/// <summary>
@@ -182,18 +182,18 @@ static class UtilityFunctions
 		foreach (Ship s in thePlayer) {
 			if (s == null || !s.IsDeployed)
 				continue;
-			rowTop = top + (cellGap + cellHeight) * s.Row + SHIP_GAP;
-			colLeft = left + (cellGap + cellWidth) * s.Column + SHIP_GAP;
+			rowTop = top + (cellGap + cellHeight) * s.Row + _shipGap;
+			colLeft = left + (cellGap + cellWidth) * s.Column + _shipGap;
 
 			if (s.Direction == Direction.LeftRight) {
 				shipName = "ShipLR" + s.Size;
-				shipHeight = cellHeight - (SHIP_GAP * 2);
-				shipWidth = (cellWidth + cellGap) * s.Size - (SHIP_GAP * 2) - cellGap;
+				shipHeight = cellHeight - (_shipGap * 2);
+				shipWidth = (cellWidth + cellGap) * s.Size - (_shipGap * 2) - cellGap;
 			} else {
 				//Up down
 				shipName = "ShipUD" + s.Size;
-				shipHeight = (cellHeight + cellGap) * s.Size - (SHIP_GAP * 2) - cellGap;
-				shipWidth = cellWidth - (SHIP_GAP * 2);
+				shipHeight = (cellHeight + cellGap) * s.Size - (_shipGap * 2) - cellGap;
+				shipWidth = cellWidth - (_shipGap * 2);
 			}
 
 			if (!small) {
@@ -222,7 +222,7 @@ static class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
+		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), _fieldLeft, _messageTop);
 	}
 
 	/// <summary>
@@ -277,8 +277,8 @@ static class UtilityFunctions
 		animation = SwinGame.LoadAnimationScript("splash.txt");
 
 		s = SwinGame.CreateSprite(imgObj, animation);
-		s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
-		s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
+		s.X = _fieldLeft + col * (_cellWidth + _cellGap);
+		s.Y = _fieldTop + row * (_cellHeight + _cellGap);
 
 		s.StartAnimation("splash");
 		_Animations.Add(s);

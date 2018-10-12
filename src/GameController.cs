@@ -77,13 +77,17 @@ public static class GameController
 
         //create the players
         switch (_aiSetting) {
-			case AIOption.Medium:
+            case AIOption.Easy:
+                _ai = new AIEasyPlayer(_theGame);
+                //Console.WriteLine("Easy");
+                break;
+            case AIOption.Medium:
 				_ai = new AIMediumPlayer(_theGame);
-                Console.WriteLine("Medium");
+                //Console.WriteLine("Medium");
 				break;
 			case AIOption.Hard:
 				_ai = new AIHardPlayer(_theGame);
-                Console.WriteLine("Medium");
+                //Console.WriteLine("Hard");
                 break;
 			default:
 				_ai = new AIMediumPlayer(_theGame);

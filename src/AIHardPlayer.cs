@@ -69,9 +69,9 @@ public class AIHardPlayer : AIPlayer
 	}
 
 	/// <summary>
-	/// Private enumarator for AI states. currently there are two states,
+	/// Private enumarator for AI states. currently there are three states,
 	/// the AI can be searching for a ship, or if it has found a ship it will
-	/// target the same ship
+	/// target the same ship, once it has hit a ship it will lock onto that ship
 	/// </summary>
 	private enum AIStates
 	{
