@@ -25,15 +25,12 @@ static class UtilityFunctions
 	public const int _cellGap = 2;
 
 	public const int _shipGap = 3;
-<<<<<<< HEAD
-	private static readonly Color SMALL_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
-	private static readonly Color SMALL_SHIP = Color.Gray;
-	private static readonly Color SMALL_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
-=======
+
+
 	private static readonly Color _smallSea = SwinGame.RGBAColor(6, 60, 94, 255);
 	private static readonly Color _smallShip = Color.Gray;
 	private static readonly Color _smallMiss = SwinGame.RGBAColor(1, 147, 220, 255);
->>>>>>> 1bf8de4f12aedd0596c385fb81337a70534585aa
+
 
 	private static readonly Color _smallHit = SwinGame.RGBAColor(169, 24, 37, 255);
 	private static readonly Color _largeSea = SwinGame.RGBAColor(6, 60, 94, 255);
@@ -201,31 +198,31 @@ static class UtilityFunctions
 			rowTop = top + (cellGap + cellHeight) * s.Row + _shipGap;
 			colLeft = left + (cellGap + cellWidth) * s.Column + _shipGap;
 
-			if (s.Direction == Direction.LeftRight)
+            if (s.Direction == Direction.LeftRight)
             {
-				shipName = "ShipLR" + s.Size;
-				shipHeight = cellHeight - (_shipGap * 2);
-				shipWidth = (cellWidth + cellGap) * s.Size - (_shipGap * 2) - cellGap;
-<<<<<<< HEAD
-			} else {
-=======
-			} else
-            {
->>>>>>> 1bf8de4f12aedd0596c385fb81337a70534585aa
-				//Up down
-				shipName = "ShipUD" + s.Size;
-				shipHeight = (cellHeight + cellGap) * s.Size - (_shipGap * 2) - cellGap;
-				shipWidth = cellWidth - (_shipGap * 2);
-			}
+                shipName = "ShipLR" + s.Size;
+                shipHeight = cellHeight - (_shipGap * 2);
+                shipWidth = (cellWidth + cellGap) * s.Size - (_shipGap * 2) - cellGap;
 
-			if (!small)
+            }
+            else
             {
-				SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
-			} else
-            {
-				SwinGame.FillRectangle(_shipFillColor, colLeft, rowTop, shipWidth, shipHeight);
-				SwinGame.DrawRectangle(_shipOutlineColor, colLeft, rowTop, shipWidth, shipHeight);
-			}
+                //Up down
+                shipName = "ShipUD" + s.Size;
+                shipHeight = (cellHeight + cellGap) * s.Size - (_shipGap * 2) - cellGap;
+                shipWidth = cellWidth - (_shipGap * 2);
+            }
+
+                if (!small)
+                {
+                    SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
+                }
+                else
+                {
+                    SwinGame.FillRectangle(_shipFillColor, colLeft, rowTop, shipWidth, shipHeight);
+                    SwinGame.DrawRectangle(_shipOutlineColor, colLeft, rowTop, shipWidth, shipHeight);
+                }
+            
 		}
 	}
 
@@ -246,11 +243,7 @@ static class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-<<<<<<< HEAD
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), _fieldLeft, _messageTop);
-=======
 		SwinGame.DrawText(Message, _messageColor, GameResources.GameFont("Courier"), _fieldLeft, _messageTop);
->>>>>>> 1bf8de4f12aedd0596c385fb81337a70534585aa
 	}
 
 	/// <summary>
